@@ -184,8 +184,9 @@ function changeColor(e) {
 */
 
 //THIS WORKS!!!!!!!!!!!!!!!!!!!
+let currentColor = "black";
 function changeColor(e) {
-  e.target.style.backgroundColor = "black";
+    e.target.style.backgroundColor = currentColor;
 }
 //Another Method
 /*
@@ -211,3 +212,28 @@ function colorDiv() {
 }
 
 */
+
+
+//Erase Button
+let eraser = document.querySelector("#erase");
+
+eraser.addEventListener('click', () => {  
+  currentColor = "white";
+});
+
+//Color Selector 
+let colorOptions = document.getElementById("colorOptions"); 
+
+colorOptions.addEventListener('click' , () => {
+  document.getElementById("dropMenu").classList.toggle("show");
+});
+
+//Actually Selecting Color
+let selectColor  = document.querySelectorAll("#dropMenu");
+
+selectColor.forEach((button) => {
+  
+  button.addEventListener('click', (e) => {
+    currentColor= e.target.id;
+  });
+});
